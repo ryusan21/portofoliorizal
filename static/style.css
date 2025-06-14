@@ -1,0 +1,811 @@
+/* General Body Styling */
+body {
+    font-family: 'Nunito', sans-serif; /* Changed to Nunito for a rounder body font */
+    background-color: #f8f9fa; /* Light background for overall site */
+    color: #343a40; /* Darker text for better readability */
+    line-height: 1.7; /* Slightly increased line height */
+    position: relative;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Color Palette Variables - Reverted to deep purple/blue */
+:root {
+    --primary-dark: #4a00e0; /* Deep purple */
+    --primary-light: #8e2de2; /* Lighter purple */
+    --accent-yellow: #ffc107; /* Bright yellow */
+    --text-dark: #343a40;
+    --text-light: #f0f0f0;
+    --bg-light: #f8f9fa;
+    --bg-medium: #e9ecef;
+    --bg-white: #ffffff;
+}
+
+/* Notification Container Styling */
+#notification-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1050;
+    max-width: 380px; /* Slightly wider notifications */
+}
+
+/* Custom Alert Styling */
+.custom-alert {
+    font-family: 'Nunito', sans-serif; /* Updated font */
+    border: none;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Softer, larger shadow */
+    margin-bottom: 1rem;
+    padding: 1.2rem 1.5rem; /* More padding */
+    color: var(--text-dark);
+    animation-duration: 0.6s; /* Slightly longer animation */
+    animation-fill-mode: both;
+    border-radius: 12px; /* More rounded corners */
+    background-color: var(--bg-white); /* White background for alerts */
+    border-left: 5px solid; /* Colored left border for type indication */
+}
+
+.custom-alert.fade-in-right {
+    animation-name: fadeInRight;
+}
+
+.custom-alert.fade-out-right {
+    animation-name: fadeOutRight;
+}
+
+.alert-success {
+    border-color: #28a745; /* Green border */
+    color: #28a745; /* Green text */
+}
+
+.alert-danger {
+    border-color: #dc3545; /* Red border */
+    color: #dc3545; /* Red text */
+}
+
+/* Keyframe Animations */
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translate3d(30px, 0, 0); /* More pronounced slide */
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes fadeOutRight {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        transform: translate3d(30px, 0, 0);
+    }
+}
+
+.btn-close {
+    color: #6c757d; /* Darker close button for better visibility on white */
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.btn-close:hover {
+    opacity: 1;
+}
+
+/* Hero Section Background (Primary Gradient) - Reverted to purple/blue */
+.hero-section {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%); /* Deep purple to lighter purple */
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Parallax Effect */
+.parallax-bg {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* Optional: Add a subtle background image here, e.g., background-image: url('path/to/your/image.jpg'); */
+}
+
+/* Navbar Styling */
+.custom-navbar {
+    padding: 1rem 0;
+    transition: background-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    z-index: 1020;
+    backdrop-filter: blur(8px); /* Stronger glassmorphism */
+    -webkit-backdrop-filter: blur(8px);
+    background-color: rgba(255, 255, 255, 0.05); /* Very subtle transparent white for initial state */
+}
+
+.custom-navbar.scrolled {
+    background-color: var(--primary-dark) !important; /* Solidifies to deep purple on scroll */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4); /* More prominent shadow */
+}
+
+.navbar-brand {
+    font-family: 'Quicksand', sans-serif; /* Changed to Quicksand for rounder headings */
+    font-size: 2.2rem; /* Adjusted brand name size */
+    font-weight: 900; /* Extra bold */
+    color: #fff !important;
+    letter-spacing: 1.5px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.nav-link {
+    font-family: 'Quicksand', sans-serif; /* Changed to Quicksand for rounder nav links */
+    font-size: 1.1rem; /* Adjusted nav links size */
+    margin-left: 2rem; /* More spacing */
+    color: #fff !important;
+    transition: color 0.3s ease-in-out, transform 0.2s ease-in-out, text-shadow 0.3s ease;
+    position: relative;
+    padding: 0.5rem 0; /* Add padding for better touch targets */
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px; /* Thicker underline */
+    bottom: -8px; /* Lower underline */
+    left: 0;
+    background-color: var(--accent-yellow); /* Bright yellow accent */
+    transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth animation curve */
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--accent-yellow) !important;
+    transform: translateY(-4px); /* More dynamic hover effect */
+    text-shadow: 0 0 10px rgba(255, 193, 7, 0.8);
+}
+
+/* Custom Hamburger Icon Styling */
+.custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    transition: transform 0.3s ease-in-out;
+}
+
+.custom-toggler:focus {
+    box-shadow: none; /* Remove focus outline */
+}
+
+.custom-toggler[aria-expanded="true"] .navbar-toggler-icon {
+    transform: rotate(90deg); /* Rotate icon on open */
+}
+
+/* Hero Section Content Styling */
+#beranda h1 {
+    font-family: 'Quicksand', sans-serif; /* Changed to Quicksand for rounder headings */
+    font-size: 4.5rem; /* Adjusted heading size */
+    font-weight: 900; /* Extra bold */
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5); /* Stronger shadow */
+}
+
+#beranda p {
+    font-family: 'Nunito', sans-serif; /* Updated font */
+    font-size: 1.6rem; /* Adjusted paragraph size */
+    font-weight: 300;
+    margin-top: 1.5rem;
+    letter-spacing: 0.5px;
+}
+
+.text-accent {
+    color: var(--accent-yellow); /* Bright yellow for accent text */
+}
+
+.typed-text {
+    color: var(--accent-yellow); /* Brighter yellow for typed text */
+    font-weight: 700;
+}
+
+.btn-primary-outline {
+    border-width: 3px; /* Thicker border */
+    font-weight: 700;
+    padding: 16px 40px; /* Adjusted button padding */
+    border-radius: 999px; /* Fully rounded pill shape */
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    color: var(--accent-yellow) !important; /* Bright yellow text */
+    border-color: var(--accent-yellow) !important; /* Bright yellow border */
+    text-transform: uppercase; /* Uppercase text */
+    letter-spacing: 1px;
+    background-color: transparent; /* Ensure transparent background */
+}
+
+.btn-primary-outline:hover {
+    background-color: var(--accent-yellow);
+    color: var(--primary-dark) !important; /* Dark purple text on hover */
+    transform: translateY(-5px); /* More dynamic hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Section Title Styling */
+.section-title {
+    font-family: 'Quicksand', sans-serif; /* Changed to Quicksand for rounder headings */
+    position: relative;
+    padding-bottom: 1.2rem; /* Adjusted space below title */
+    margin-bottom: 3rem; /* Adjusted space below title */
+    font-size: 2.8rem; /* Adjusted section title size */
+    font-weight: 800; /* Bolder */
+    color: var(--text-dark); /* Darker color for titles */
+    text-align: center;
+    text-transform: uppercase; /* Uppercase titles */
+    letter-spacing: 1px;
+}
+
+.section-title::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px; /* Adjusted underline width */
+    height: 4px; /* Adjusted underline thickness */
+    background: linear-gradient(90deg, var(--primary-dark), var(--primary-light)); /* Gradient underline */
+    border-radius: 5px;
+}
+
+.section-title-light {
+    color: white; /* White text for dark gradient sections */
+}
+
+.section-title-light::before {
+    background: linear-gradient(90deg, var(--accent-yellow), #ffeb3b); /* Yellow gradient underline */
+}
+
+/* About Section Styling */
+#tentang {
+    background-color: var(--bg-white);
+    padding: 80px 0; /* Adjusted padding */
+}
+
+#tentang .profile-img {
+    border-radius: 18px; /* Adjusted rounded corners */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Adjusted shadow */
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease-in-out;
+    border: 4px solid var(--bg-white); /* Adjusted border */
+    outline: 1px solid rgba(0, 0, 0, 0.05); /* Subtle outline */
+}
+
+#tentang .profile-img:hover {
+    transform: translateY(-6px) scale(1.01); /* Adjusted dynamic hover */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* "Unduh CV" Button - Now with Blue-Purple Gradient */
+.btn-primary-custom {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%); /* Blue-purple gradient */
+    border: none; /* Remove border */
+    color: white; /* White text for dark gradient */
+    border-radius: 999px; /* Fully rounded */
+    padding: 12px 30px; /* Adjusted button padding */
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* More prominent shadow */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary-custom:hover {
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-dark) 100%); /* Reverse gradient on hover */
+    color: var(--accent-yellow); /* Yellow text on hover */
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* "Lihat Semua Proyek" Button - Now with Blue-Purple Gradient */
+.btn-secondary-custom {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%); /* Blue-purple gradient */
+    border: none; /* Remove border as gradient handles it */
+    color: white; /* White text for dark gradient */
+    border-radius: 999px; /* Fully rounded */
+    padding: 12px 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* More prominent shadow */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-secondary-custom:hover {
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-dark) 100%); /* Reverse gradient on hover */
+    color: var(--accent-yellow); /* Yellow text on hover */
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Project Section Styling */
+.bg-light-gray {
+    background-color: var(--bg-light); /* Consistent light background */
+}
+
+#proyek {
+    padding: 80px 0; /* Adjusted padding */
+}
+
+.project-card {
+    border: none;
+    border-radius: 15px; /* Adjusted rounded corners */
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease-in-out;
+    background-color: var(--bg-white);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.07); /* Adjusted initial shadow */
+    display: flex; /* Make card a flex container */
+    flex-direction: column; /* Stack children vertically */
+    height: 100%; /* Ensure card takes full height of its column */
+}
+
+.project-card:hover {
+    transform: translateY(-10px); /* Adjusted lift */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12); /* Adjusted hover shadow */
+}
+
+.card-img-top {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    height: 220px; /* Adjusted image height */
+    object-fit: cover;
+}
+
+.project-card .card-body {
+    padding: 1.8rem; /* Adjusted padding */
+    flex-grow: 1; /* Allow card body to grow and fill space */
+    display: flex; /* Make card body a flex container */
+    flex-direction: column; /* Stack content vertically */
+    justify-content: space-between; /* Distribute space between title, text, and buttons */
+}
+
+.project-card .card-title {
+    font-family: 'Quicksand', sans-serif; /* Changed to Quicksand for rounder headings */
+    font-size: 1.4rem; /* Adjusted title size */
+    margin-bottom: 0.8rem;
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+.project-card .card-text {
+    font-family: 'Nunito', sans-serif; /* Updated font */
+    font-size: 1rem; /* Adjusted text size */
+    color: #6c757d;
+    margin-bottom: 1.5rem; /* Adjusted space below text */
+    min-height: 70px; /* Ensure consistent height for text area */
+}
+
+.project-tech-icons {
+    font-size: 1.4rem; /* Adjusted tech icons size */
+}
+
+.project-tech-icons i {
+    margin-left: 0.7rem;
+    transition: transform 0.2s ease-in-out;
+}
+
+.project-tech-icons i:hover {
+    transform: scale(1.2); /* Adjusted scale */
+}
+
+.btn-outline-primary-custom {
+    border-width: 2px;
+    font-weight: 600;
+    border-radius: 999px; /* Fully rounded */
+    padding: 8px 20px; /* Adjusted padding */
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.2s ease;
+    color: var(--primary-dark); /* Deep purple text */
+    border-color: var(--primary-dark); /* Deep purple border */
+}
+
+.btn-outline-primary-custom:hover {
+    background-color: var(--primary-dark);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Skills Section Styling */
+#keahlian {
+    padding: 80px 0; /* Adjusted padding */
+    /* Uses hero-section gradient */
+}
+
+.skill-category {
+    background-color: rgba(255, 255, 255, 0.15); /* More transparent for glass effect */
+    border-radius: 18px; /* Adjusted rounded corners */
+    padding: 25px; /* Adjusted padding */
+    margin-bottom: 25px; /* Adjusted margin */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08); /* Adjusted shadow */
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), background-color 0.4s ease-in-out;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle white border */
+    backdrop-filter: blur(8px); /* Adjusted blur for glass effect */
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.skill-category:hover {
+    transform: translateY(-6px); /* Adjusted lift */
+    background-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+#keahlian h5 {
+    font-family: 'Quicksand', sans-serif; /* Changed to Quicksand for rounder headings */
+    font-size: 1.6rem; /* Adjusted skill titles size */
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-weight: 700;
+}
+
+#keahlian .skill-icon {
+    font-size: 2.2rem; /* Adjusted icons size */
+    margin-right: 15px;
+    color: var(--accent-yellow); /* Brighter yellow accent */
+    text-shadow: 0 0 10px rgba(255, 235, 59, 0.8);
+}
+
+#keahlian .skill-list li {
+    font-family: 'Nunito', sans-serif; /* Updated font */
+    padding: 0.8rem 0; /* Adjusted padding */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Slightly thicker border */
+    font-size: 1.1rem; /* Adjusted font size */
+    color: var(--text-light); /* Lighter text for contrast */
+    transition: color 0.3s ease;
+}
+
+#keahlian .skill-list li:last-child {
+    border-bottom: none;
+}
+
+#keahlian .skill-list li:hover {
+    color: var(--accent-yellow); /* Brighter yellow on hover */
+}
+
+/* Technology & Framework Section Styling */
+#teknologi {
+    padding: 80px 0; /* Adjusted padding */
+    background-color: var(--bg-light); /* Consistent light background */
+}
+
+.tech-card {
+    background-color: var(--bg-white);
+    border-radius: 15px; /* Adjusted rounded corners */
+    padding: 30px; /* Adjusted padding */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.07); /* Adjusted shadow */
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease-in-out;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--bg-medium); /* Subtle border */
+}
+
+.tech-card:hover {
+    transform: translateY(-8px); /* Adjusted lift */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.tech-card i {
+    font-size: 4.5rem; /* Adjusted icons size */
+    margin-bottom: 18px; /* Adjusted space */
+    transition: color 0.3s ease-in-out;
+}
+
+.tech-card h5 {
+    font-family: 'Quicksand', sans-serif; /* Changed to Quicksand for rounder headings */
+    font-size: 1.4rem; /* Adjusted title size */
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+}
+
+.tech-card p {
+    font-family: 'Nunito', sans-serif; /* Updated font */
+    font-size: 0.95rem; /* Adjusted text size */
+    color: #6c757d;
+    text-align: center;
+}
+
+/* Specific icon colors (unchanged, as they are good) */
+.text-html { color: #e34c26 !important; } /* HTML5 */
+.text-css { color: #264de4 !important; } /* CSS3 */
+.text-js { color: #f7df1e !important; } /* JavaScript */
+.text-python { color: #3776ab !important; } /* Python/Flask */
+.text-bootstrap { color: #7952b3 !important; } /* Bootstrap */
+.text-react { color: #61DAFB !important; } /* React */
+.text-git { color: #f1502f !important; } /* Git */
+.text-figma { color: #F24E1E !important; } /* Figma - custom color */
+
+
+/* Contact Section Styling */
+#kontak {
+    padding: 80px 0; /* Adjusted padding */
+    background-color: var(--bg-white);
+}
+
+.contact-form {
+    padding: 40px !important; /* Adjusted padding */
+    border-radius: 20px !important; /* Adjusted rounded corners */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important; /* Adjusted shadow */
+    background-color: var(--bg-white) !important;
+}
+
+#kontak form .form-label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #495057; /* Slightly darker label */
+}
+
+#kontak form .custom-input {
+    border-radius: 12px; /* Adjusted rounded input fields */
+    padding: 1rem 1.2rem; /* Adjusted padding */
+    font-size: 1rem; /* Adjusted font size */
+    border: 1px solid #dee2e6; /* Lighter border */
+    box-shadow: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#kontak form .custom-input:focus {
+    border-color: var(--primary-dark); /* Deep purple focus */
+    box-shadow: 0 0 0 0.25rem rgba(74, 0, 224, 0.2); /* Purple focus shadow */
+}
+
+#kontak form .btn-primary-custom {
+    background-color: var(--primary-dark); /* Deep purple */
+    border: none;
+    border-radius: 999px; /* Fully rounded */
+    padding: 14px 35px; /* Adjusted button padding */
+    font-size: 1.2rem; /* Adjusted font size */
+    font-weight: 700;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease;
+    box-shadow: 0 5px 12px rgba(var(--primary-dark), 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#kontak form .btn-primary-custom:hover {
+    background-color: var(--primary-light); /* Lighter purple on hover */
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(var(--primary-dark), 0.4);
+}
+
+.contact-icons-group {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping */
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px; /* Adjusted space */
+    gap: 15px; /* Added gap for spacing between items */
+}
+
+/* "Hubungi Saya" Contact Icon Links - Now with Blue-Purple Gradient */
+.contact-icon-link {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%); /* Blue-purple gradient */
+    border: none; /* Remove border */
+    color: white; /* White text for dark gradient */
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 1.5rem; /* Adjusted padding */
+    font-size: 1.05rem; /* Adjusted font size */
+    transition: all 0.3s ease; /* Combined transition */
+    border-radius: 999px; /* Fully rounded */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); /* Adjusted shadow */
+}
+
+.contact-icon-link:hover {
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-dark) 100%); /* Reverse gradient on hover */
+    color: var(--accent-yellow); /* Yellow text on hover */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.contact-icon-link i {
+    margin-right: 10px; /* Adjusted margin */
+    color: white; /* White icon for dark gradient */
+    transition: color 0.3s ease-in-out;
+}
+
+.contact-icon-link:hover i {
+    color: var(--accent-yellow); /* Yellow icon on hover */
+}
+
+/* Footer Styling - Now with Blue-Purple Gradient */
+.custom-footer {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-light) 100%); /* Blue-purple gradient */
+    color: var(--text-light); /* Lighter text for contrast */
+    padding: 25px 0; /* Adjusted padding */
+    font-size: 0.95rem; /* Adjusted font size */
+    box-shadow: 0 -6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.custom-footer a {
+    color: var(--accent-yellow); /* Yellow accent for links */
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.custom-footer a:hover {
+    color: #ffeb3b; /* Brighter yellow on hover */
+}
+
+/* Heartbeat Animation for Footer Icon */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); } /* Adjusted pulse */
+    100% { transform: scale(1); }
+}
+
+.animate__pulse.animate__infinite {
+    animation: pulse 1.5s infinite; /* Adjusted speed */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .navbar-nav {
+        background-color: var(--primary-dark); /* Deep purple for mobile navbar */
+        padding: 1.2rem; /* Adjusted padding */
+        border-radius: 12px; /* Adjusted border-radius */
+        margin-top: 10px; /* Adjusted margin */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    .nav-link {
+        margin-left: 0;
+        text-align: center;
+        padding: 0.7rem 0; /* Adjusted padding */
+        font-size: 1rem; /* Adjusted font size */
+        color: #fff !important;
+    }
+    .nav-link::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    #beranda h1 {
+        font-size: 3rem; /* Adjusted font size */
+    }
+    #beranda p {
+        font-size: 1.4rem; /* Adjusted font size */
+    }
+    .section-title {
+        font-size: 2.4rem; /* Adjusted font size */
+        margin-bottom: 2.5rem; /* Adjusted margin */
+    }
+    #tentang .profile-img {
+        margin-bottom: 2.5rem; /* Adjusted margin */
+    }
+    #tentang .btn {
+        width: 100%;
+        margin-bottom: 1rem;
+        padding: 10px 25px; /* Adjusted padding */
+    }
+    .project-card .card-img-top {
+        height: 180px; /* Adjusted height */
+    }
+    .project-card .card-body {
+        padding: 1.5rem; /* Adjusted padding */
+    }
+    .project-card .card-title {
+        font-size: 1.3rem; /* Adjusted font size */
+    }
+    .project-card .card-text {
+        font-size: 0.95rem; /* Adjusted font size */
+    }
+    .tech-card {
+        padding: 20px; /* Adjusted padding */
+    }
+    .tech-card i {
+        font-size: 3.5rem; /* Adjusted font size */
+    }
+    .tech-card h5 {
+        font-size: 1.2rem; /* Adjusted font size */
+    }
+    .contact-icons-group {
+        flex-direction: column; /* Stack vertically */
+        gap: 10px; /* Adjusted gap */
+    }
+    .contact-icon-link {
+        margin: 0; /* Remove horizontal margin */
+        width: 90%; /* Full width */
+        justify-content: center;
+        padding: 0.7rem 1.2rem; /* Adjusted padding */
+        font-size: 1rem; /* Adjusted font size */
+    }
+}
+
+@media (max-width: 768px) {
+    #beranda h1 {
+        font-size: 2.5rem;
+    }
+    #beranda p {
+        font-size: 1.2rem;
+    }
+    .section-title {
+        font-size: 2rem;
+    }
+    .navbar-brand {
+        font-size: 1.6rem;
+    }
+    #tentang .btn {
+        padding: 10px 25px;
+    }
+    .skill-category {
+        padding: 18px;
+    }
+    #keahlian h5 {
+        font-size: 1.4rem;
+    }
+    #keahlian .skill-icon {
+        font-size: 2rem;
+    }
+    #keahlian .skill-list li {
+        font-size: 1rem;
+    }
+    #kontak form .btn-primary-custom {
+        font-size: 1.1rem;
+        padding: 12px 30px;
+    }
+    .tech-card i {
+        font-size: 3rem;
+    }
+    .tech-card h5 {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    #beranda h1 {
+        font-size: 1.8rem;
+    }
+    #beranda p {
+        font-size: 0.95rem;
+    }
+    .section-title {
+        font-size: 1.6rem;
+    }
+    .btn-primary-outline {
+        padding: 10px 25px;
+        font-size: 0.9rem;
+    }
+    .project-card .card-body {
+        padding: 1.2rem;
+    }
+    .project-card .card-title {
+        font-size: 1.1rem;
+    }
+    .project-card .card-text {
+        font-size: 0.85rem;
+    }
+    .project-tech-icons {
+        font-size: 1.2rem;
+    }
+    #kontak form .custom-input {
+        padding: 0.8rem 1rem;
+        font-size: 0.9rem;
+    }
+    .tech-card {
+        padding: 15px;
+    }
+    .tech-card i {
+        font-size: 2.5rem;
+    }
+    .tech-card h5 {
+        font-size: 1rem;
+    }
+    .tech-card p {
+        font-size: 0.8rem;
+    }
+    .contact-icon-link {
+        font-size: 0.9rem;
+        padding: 0.6rem 1rem;
+    }
+}

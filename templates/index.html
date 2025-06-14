@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="portofolio web developer, Muhammad rizal, templates portofolio, web developer freelance, HTML, CSS, JavaScript, Flask, Tailwind, Bootstrap, React, proyek web">
+    <meta property="og:title" content="Portofolio Muhammad rizal | menyediakan templates-templates portofolio">
+    <meta name="description" content="portofolio Muhammad rizal, kami menyediakan templates-templates portofolio keren, responsive dan modern serta jasa pembuatan website, hubungi saya dengan nomor ini +62895701060973.">
+    <meta property="og:description" content="Jelajahi templates portofolio saya, kami menyediakan templates-templates portofolio keren, responsive dan modern, serta jasa pembuatan website.">
+    <meta name="google-site-verification" content="0dBRn4kyYcLyYP6y0S9Ll1fcdDXd3hJDRqsXqvzwNNA"/>
+    <title>My portofolio</title>
+    <link rel="icon" type="image/png" href="https://img.icons8.com/?size=100&id=5YJfwWrxvtjY&format=png&color=000000">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&family=Quicksand:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script type="application/ld+json">
+        [
+          {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Muhammad rizal",
+            "url": "https://testing.com",
+            "image": "{{ url_for('static', filename='img/ft-sy.jpg') }}",
+            "jobTitle": "Web Developer",
+            "additionalType": "https://schema.org/SoftwareDeveloper",
+            "description": "portofolio Muhammad rizal, kami menyediakan templates-templates portofolio keren, responsive dan modern serta jasa pembuatan website.",
+            "knowsAbout": [
+              "Web Development", "Front-end Development", "Back-end Development",
+              "HTML5", "CSS3", "JavaScript", "Python", "Flask", "Tailwind CSS",
+              "Bootstrap", "React", "Gatsby", "Astro", "Responsive Design"
+            ],
+            "sameAs": [
+              "https://github.com/ryusan21",
+              "https://wa.me/qr/MKGR54NQXZV5B1"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "contactType": "Sales or technical support",
+              "email": "mailto:risalmuhammad2436@gmail.com"
+            }
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Portofolio Muhammad rizal",
+            "url": "https://testing.com",
+            "description": "portofolio Muhammad rizal, kami menyediakan templates-templates portofolio keren, responsive dan modern serta jasa pembuatan website.",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://testing.com/cari?q={search_term_string}"
+              },
+              "query-input": "required name=search_term_string"
+            }
+          }
+        ]
+    </script>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#navbarNav" data-bs-offset="50">
+    <div id="notification-container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }} custom-alert fade-in-right show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow-sm custom-navbar">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="https://templates-ekasaputra-dua.vercel.app">Muhammad rizal</a>
+            <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#beranda">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#tentang">Tentang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#proyek">Proyek</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#keahlian">Keahlian</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#teknologi">Teknologi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#kontak">Kontak</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="beranda" class="d-flex align-items-center min-vh-100 hero-section parallax-bg">
+        <div class="container text-center text-light">
+            <h1 class="display-3 fw-bold animate__animated animate__fadeInDown">Halo, Saya <span class="text-accent">Muhammad rizal</span>!</h1>
+            <p class="lead animate__animated animate__fadeInUp animate__delay-1s">Seorang <span class="typed-text" data-typed-items="Pengembang Web, Desainer UI/UX, Sysadmin Linux"></span></p>
+            <a href="#proyek" class="btn btn-lg btn-primary-outline mt-4 animate__animated animate__fadeInUp animate__delay-2s">Lihat Karya Saya <i class="fas fa-arrow-right ms-2"></i></a>
+        </div>
+    </section>
+
+    <section id="tentang" class="py-5 bg-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 animate__animated animate__fadeInLeft">
+                    <img src="{{ url_for('static', filename='img/my-foto.jpg') }}" href="https://templates-ekasaputra-dua.vercel.app" alt="Foto Saya" class="img-fluid rounded-lg shadow-lg profile-img">
+                </div>
+                <div class="col-md-6 d-flex flex-column justify-content-center animate__animated animate__fadeInRight">
+                    <h2 class="fw-bold mb-3 section-title">Tentang Saya</h2>
+                    <p class="lead text-muted">Sedikit tentang latar belakang dan apa yang membuat saya bersemangat.</p>
+                    <p>Saya seorang profesional yang bersemangat dalam pengembangan dan desain web. Dengan keahlian dalam HTML, CSS, JavaScript, Flask, dll, saya berdedikasi untuk menciptakan solusi digital yang inovatif dan berpusat pada pengguna. Ketertarikan saya pada tren desain terbaru dan teknologi web mutakhir mendorong saya untuk terus belajar dan berkembang dalam setiap proyek.</p>
+                    <div class="mt-4 d-flex flex-wrap gap-3">
+                        <a href="#" class="btn btn-primary-custom btn-lg"><i class="fas fa-download me-2"></i> Unduh CV</a>
+                        <a href="#kontak" class="btn btn-secondary-custom btn-lg"><i class="fas fa-envelope me-2"></i> Hubungi Saya</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="proyek" class="py-5 bg-light-gray">
+        <div class="container">
+            <h2 class="fw-bold text-center mb-5 section-title">Proyek Terbaru</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 animate__animated animate__fadeInUp">
+                    <div class="card project-card shadow-lg border-0">
+                        <img src="{{ url_for('static', filename='img/project-1.jpg') }}" href="https://templates-ekasaputra-dua.vercel.app" class="card-img-top rounded-top" alt="Proyek 1">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">MimasoNet</h5>
+                            <p class="card-text text-muted">Website jasa layanan pemasangan internet cepat tanpa batas, dikembangkan menggunakan Nodejs dan Gatsby</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <a href="http://misamonet.my.id/" class="btn btn-outline-primary-custom btn-sm"><i class="fas fa-eye me-1"></i> Lihat Detail</a>
+                                <div class="project-tech-icons">
+                                    <i class="fab fa-html5 text-html" data-bs-toggle="tooltip" title="HTML5"></i>
+                                    <i class="fab fa-css3-alt text-css" data-bs-toggle="tooltip" title="CSS3"></i>
+                                    <i class="fab fa-js-square text-js" data-bs-toggle="tooltip" title="JavaScript"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 animate__animated animate__fadeInUp animate__delay-1s">
+                    <div class="card project-card shadow-lg border-0">
+                        <img src="{{ url_for('static', filename='img/project.webp') }}" href="https://templates-ekasaputra-dua.vercel.app" class="card-img-top rounded-top" alt="Proyek 2">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Proyek saya</h5>
+                            <p class="card-text text-muted">Proyek ini dalam masa pengembangan (Coming Soon)</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <a href="#" class="btn btn-outline-primary-custom btn-sm"><i class="fas fa-eye me-1"></i> Lihat Detail</a>
+                                <div class="project-tech-icons">
+                                    <i class="fab fa-html5 text-html" data-bs-toggle="tooltip" title="HTML5"></i>
+                                    <i class="fab fa-css3-alt text-css" data-bs-toggle="tooltip" title="CSS3"></i>
+                                    <i class="fab fa-js-square text-js" data-bs-toggle="tooltip" title="JavaScript"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 animate__animated animate__fadeInUp animate__delay-2s">
+                    <div class="card project-card shadow-lg border-0">
+                        <img src="{{ url_for('static', filename='img/project.webp') }}" href="https://templates-ekasaputra-dua.vercel.app" class="card-img-top rounded-top" alt="Proyek 3">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Proyek saya</h5>
+                            <p class="card-text text-muted">Proyek ini dalam masa pengembangan (Coming Soon)</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <a href="#" class="btn btn-outline-primary-custom btn-sm"><i class="fas fa-eye me-1"></i> Lihat Detail</a>
+                                <div class="project-tech-icons">
+                                    <i class="fab fa-html5 text-html" data-bs-toggle="tooltip" title="HTML5"></i>
+                                    <i class="fab fa-css3-alt text-css" data-bs-toggle="tooltip" title="CSS3"></i>
+                                    <i class="fab fa-js-square text-js" data-bs-toggle="tooltip" title="JavaScript"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="#" class="btn btn-secondary-custom btn-lg">Lihat Semua Proyek <i class="fas fa-arrow-right ms-1"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="keahlian" class="py-5 hero-section">
+        <div class="container">
+            <h2 class="fw-bold text-center mb-5 section-title section-title-light">Keahlian Saya</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4 animate__animated animate__fadeInLeft">
+                    <div class="skill-category glass-effect">
+                        <h5 class="fw-bold mb-3"><i class="fas fa-code me-3 skill-icon"></i> Pengembangan Web</h5>
+                        <ul class="list-unstyled skill-list">
+                            <li>HTML5, CSS3, JavaScript (ES6+)</li>
+                            <li>Framework: React, Angular, Vue.js</li>
+                            <li>Backend: Node.js, Python (Flask/Django)</li>
+                            <li>Database: PostgreSQL, MySQL, MongoDB</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4 animate__animated animate__fadeInRight animate__delay-1s">
+                    <div class="skill-category glass-effect">
+                        <h5 class="fw-bold mb-3"><i class="fas fa-paint-brush me-3 skill-icon"></i> Desain UI/UX</h5>
+                        <ul class="list-unstyled skill-list">
+                            <li>Prototyping: Figma, Adobe XD</li>
+                            <li>User Research & Analysis</li>
+                            <li>Usability Testing</li>
+                            <li>Responsive Design</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4 animate__animated animate__fadeInUp">
+                    <div class="skill-category glass-effect">
+                        <h5 class="fw-bold mb-3"><i class="fas fa-tools me-3 skill-icon"></i> Tools & Lainnya</h5>
+                        <ul class="list-unstyled skill-list">
+                            <li>Git & Version Control</li>
+                            <li>Agile & Scrum</li>
+                            <li>Cloud Services (AWS, Google Cloud)</li>
+                            <li>SEO Basics</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4 animate__animated animate__fadeInUp animate__delay-1s">
+                    <div class="skill-category glass-effect">
+                        <h5 class="fw-bold mb-3"><i class="fas fa-chart-bar me-3 skill-icon"></i> Analisis & Lain-lain</h5>
+                        <ul class="list-unstyled skill-list">
+                            <li>Google Analytics</li>
+                            <li>Data Visualization</li>
+                            <li>Problem Solving</li>
+                            <li>Communication</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="teknologi" class="py-5 bg-light-gray">
+        <div class="container">
+            <h2 class="fw-bold text-center mb-5 section-title">Teknologi & Framework</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4 animate__animated animate__zoomIn">
+                    <div class="tech-card text-center p-4 rounded-lg shadow-sm">
+                        <i class="fab fa-html5 fa-4x text-html mb-3"></i>
+                        <h5 class="fw-bold">HTML5</h5>
+                        <p class="text-muted">Struktur dasar untuk web.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4 animate__animated animate__zoomIn animate__delay-0-5s">
+                    <div class="tech-card text-center p-4 rounded-lg shadow-sm">
+                        <i class="fab fa-css3-alt fa-4x text-css mb-3"></i>
+                        <h5 class="fw-bold">CSS3</h5>
+                        <p class="text-muted">Desain dan gaya visual.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4 animate__animated animate__zoomIn animate__delay-1s">
+                    <div class="tech-card text-center p-4 rounded-lg shadow-sm">
+                        <i class="fab fa-js-square fa-4x text-js mb-3"></i>
+                        <h5 class="fw-bold">JavaScript</h5>
+                        <p class="text-muted">Interaktivitas web dinamis.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4 animate__animated animate__zoomIn animate__delay-1-5s">
+                    <div class="tech-card text-center p-4 rounded-lg shadow-sm">
+                        <i class="fab fa-python fa-4x text-python mb-3"></i>
+                        <h5 class="fw-bold">Flask</h5>
+                        <p class="text-muted">Framework web Python.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4 animate__animated animate__zoomIn animate__delay-2s">
+                    <div class="tech-card text-center p-4 rounded-lg shadow-sm">
+                        <i class="fab fa-bootstrap fa-4x text-bootstrap mb-3"></i>
+                        <h5 class="fw-bold">Bootstrap</h5>
+                        <p class="text-muted">Framework CSS responsif.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4 animate__animated animate__zoomIn animate__delay-2-5s">
+                    <div class="tech-card text-center p-4 rounded-lg shadow-sm">
+                        <i class="fab fa-react fa-4x text-react mb-3"></i>
+                        <h5 class="fw-bold">React</h5>
+                        <p class="text-muted">Library UI JavaScript.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4 animate__animated animate__zoomIn animate__delay-3s">
+                    <div class="tech-card text-center p-4 rounded-lg shadow-sm">
+                        <i class="fab fa-git-alt fa-4x text-git mb-3"></i>
+                        <h5 class="fw-bold">Git</h5>
+                        <p class="text-muted">Sistem kontrol versi.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4 animate__animated animate__zoomIn animate__delay-3-5s">
+                    <div class="tech-card text-center p-4 rounded-lg shadow-sm">
+                        <i class="fas fa-pen-nib fa-4x text-figma mb-3"></i>
+                        <h5 class="fw-bold">Figma</h5>
+                        <p class="text-muted">Alat desain UI/UX.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="kontak" class="py-5 bg-white">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Hubungi Saya</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <form action="/send_message" method="POST" class="p-4 rounded shadow-lg bg-white animate__animated animate__fadeInUp contact-form">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Nama Anda</label>
+                            <input type="text" class="form-control custom-input" id="name" name="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Anda</label>
+                            <input type="email" class="form-control custom-input" id="email" name="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="subject" class="form-label">Subjek</label>
+                            <input type="text" class="form-control custom-input" id="subject" name="subject" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Pesan Anda</label>
+                            <textarea class="form-control custom-input" id="message" name="message" rows="5" placeholder="Tulis pesan Anda di sini" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary-custom btn-lg w-100">Kirim Pesan <i class="fas fa-paper-plane ms-1"></i></button>
+                    </form>
+                    <div class="text-center mt-5 contact-icons-group">
+                        <a href="mailto:risalmuhammad2436@gmail.com" class="contact-icon-link"><i class="fas fa-envelope fa-lg me-2"></i> risalmuhammad2436@gmail.com</a>
+                        <a href="https://wa.me/qr/MKGR54NQXZV5B1" class="contact-icon-link" target="_blank"><i class="fab fa-whatsapp fa-lg me-2"></i> WhatsApp</a>
+                        <a href="https://github.com/ryusan21" class="contact-icon-link" target="_blank"><i class="fab fa-github fa-lg me-2"></i> GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-4 mt-5 text-center custom-footer">
+        <div class="container">
+            <p>&copy; 2025 M.Rizal Pratama. Dibuat dengan <i class="fas fa-heart text-danger animate__animated animate__pulse animate__infinite"></i> dan Flask.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script>
+        // Initialize Bootstrap Tooltips
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+    </script>
+</body>
+</html>
